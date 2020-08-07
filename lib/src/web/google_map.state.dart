@@ -557,6 +557,9 @@ class GoogleMapState extends GoogleMapStateBase {
             (event) => widget.onTap?.call(event?.latLng?.toGeoCoord())));
         _subscriptions.add(_map.onRightclick.listen(
             (event) => widget.onLongPress?.call(event?.latLng?.toGeoCoord())));
+        _subscriptions.add(_map.onIdle.listen(
+          (event) => widget.onIddle?.call(event?.latLng?.toGeoCoord()))
+        );
 
         return elem;
       });

@@ -85,6 +85,8 @@ class GoogleMap extends StatefulWidget {
   /// For `web` this will be called when `right mouse clicked`.
   final ValueChanged<GeoCoord> onLongPress;
 
+  final ValueChanged<GeoCoord> onIddle;
+
   /// Set of mobile map preferences.
   final MobileMapPreferences mobilePreferences;
 
