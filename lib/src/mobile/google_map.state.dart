@@ -542,4 +542,8 @@ class GoogleMapState extends gmap.GoogleMapStateBase {
 
     _controller = null;
   }
+
+  @override
+  // TODO: implement bounds
+  FutureOr<GeoCoordBounds> get bounds => throw UnimplementedError();
 }

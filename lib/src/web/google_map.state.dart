@@ -591,4 +591,11 @@ class GoogleMapState extends GoogleMapStateBase {
     _map = null;
     _mapOptions = null;
   }
+
+  @override
+  FutureOr<GeoCoordBounds> get bounds {
+      var northEast = _map.bounds.northEast;
+      var southWest = _map.bounds.southWest;
+      return GeoCoordBounds(northeast: GeoCoord(northEast.lat, northEast.lng), southwest: GeoCoord(southWest.lat, southWest.lng));
+  }
 }

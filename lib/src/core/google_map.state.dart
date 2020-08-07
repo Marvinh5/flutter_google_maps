@@ -123,4 +123,7 @@ class GoogleMapState extends GoogleMapStateBase {
 
   @override
   Widget build(BuildContext context) => throw UnimplementedError();
+
+  @override
+  FutureOr<GeoCoordBounds> get bounds => throw UnimplementedError();
 }
