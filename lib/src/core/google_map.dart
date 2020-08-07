@@ -26,6 +26,7 @@ class GoogleMap extends StatefulWidget {
     this.mapStyle,
     this.markers,
     this.onTap,
+    this.onIddle,
     this.onLongPress,
     this.interactive = true,
     this.initialZoom = _zoom,
