@@ -126,4 +126,7 @@ class GoogleMapState extends GoogleMapStateBase {
 
   @override
   FutureOr<GeoCoordBounds> get bounds => throw UnimplementedError();
+
+  @override
+  Stream<dynamic> get centerStream => throw UnimplementedError();
 }

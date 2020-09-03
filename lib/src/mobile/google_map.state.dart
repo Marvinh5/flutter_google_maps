@@ -544,6 +544,8 @@ class GoogleMapState extends gmap.GoogleMapStateBase {
   }
 
   @override
-  // TODO: implement bounds
   FutureOr<GeoCoordBounds> get bounds => throw UnimplementedError();
+
+  @override
+  Stream get centerStream => throw UnimplementedError();
 }

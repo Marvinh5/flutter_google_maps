@@ -601,4 +601,9 @@ class GoogleMapState extends GoogleMapStateBase {
       var southWest = _map.bounds.southWest;
       return GeoCoordBounds(northeast: GeoCoord(northEast.lat, northEast.lng), southwest: GeoCoord(southWest.lat, southWest.lng));
   }
+
+  // @override
+  Stream<dynamic> get centerStream {
+    return _map.onBoundsChanged;
+  }
 }
