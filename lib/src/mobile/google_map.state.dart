@@ -164,6 +164,7 @@ class GoogleMapState extends gmap.GoogleMapStateBase {
     String infoSnippet,
     ValueChanged<String> onTap,
     VoidCallback onInfoWindowTap,
+    String  base64Icon
   }) async {
     assert(() {
       if (position == null) {

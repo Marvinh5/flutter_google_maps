@@ -128,6 +128,7 @@ abstract class MapMarkers {
     String infoSnippet,
     ValueChanged<String> onTap,
     VoidCallback onInfoWindowTap,
+    String base64Icon
   });
 
   /// Adds a marker to the map by given [position].
