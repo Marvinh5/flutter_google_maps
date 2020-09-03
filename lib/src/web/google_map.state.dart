@@ -139,6 +139,7 @@ class GoogleMapState extends GoogleMapStateBase {
     String infoSnippet,
     ValueChanged<String> onTap,
     ui.VoidCallback onInfoWindowTap,
+    String base64Icon
   }) {
     assert(() {
       if (position == null) {
@@ -159,9 +160,9 @@ class GoogleMapState extends GoogleMapStateBase {
     final marker = Marker()
       ..map = _map
       ..label = label
-      ..icon =  JsMap.Icon.created(JsObject.jsify({
-        'url': 'data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO 9TXL0Y4OHwAAAABJRU5ErkJggg=='
-      }))
+      ..icon = base64Icon != null ? JsMap.Icon.created(JsObject.jsify({
+        'url': base64Icon
+      })): _getImage(icon)
       ..position = position.toLatLng();
 
     if (info != null || onTap != null) {
