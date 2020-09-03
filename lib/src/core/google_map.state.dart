@@ -71,7 +71,9 @@ class GoogleMapState extends GoogleMapStateBase {
     String infoSnippet,
     ValueChanged<String> onTap,
     VoidCallback onInfoWindowTap,
-    String base64Icon
+    String base64Icon,
+    double markerWidth,
+    double markerHeight,
   }) =>
       throw UnimplementedError();
 

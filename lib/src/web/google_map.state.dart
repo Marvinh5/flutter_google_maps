@@ -139,7 +139,9 @@ class GoogleMapState extends GoogleMapStateBase {
     String infoSnippet,
     ValueChanged<String> onTap,
     ui.VoidCallback onInfoWindowTap,
-    String base64Icon
+    String base64Icon,
+    double markerWidth = 80,
+    double markerHeight = 37.629,
   }) {
     assert(() {
       if (position == null) {
@@ -160,9 +162,17 @@ class GoogleMapState extends GoogleMapStateBase {
     final marker = Marker()
       ..map = _map
       ..label = label
-      ..icon = base64Icon != null ? JsMap.Icon.created(JsObject.jsify({
-        'url': base64Icon
-      })): _getImage(icon)
+      ..icon = base64Icon != null
+          ? JsMap.Icon.created(JsObject.jsify({
+              'url': base64Icon,
+              'scaledSize': {
+                'height': markerHeight ?? 37.629,
+                'width': markerWidth ?? 80,
+                'b': 'px',
+                'f': 'px'
+              }
+            }))
+          : _getImage(icon)
       ..position = position.toLatLng();
 
     if (info != null || onTap != null) {
@@ -557,15 +567,13 @@ class GoogleMapState extends GoogleMapStateBase {
           ..style.border = 'none';
 
         _map = GMap(elem, _mapOptions);
-        
 
         _subscriptions.add(_map.onClick.listen(
             (event) => widget.onTap?.call(event?.latLng?.toGeoCoord())));
         _subscriptions.add(_map.onRightclick.listen(
             (event) => widget.onLongPress?.call(event?.latLng?.toGeoCoord())));
         _subscriptions.add(_map.onIdle.listen(
-          (event) => widget.onIddle?.call(event?.latLng?.toGeoCoord()))
-        );
+            (event) => widget.onIddle?.call(event?.latLng?.toGeoCoord())));
 
         return elem;
       });
@@ -603,9 +611,11 @@ class GoogleMapState extends GoogleMapStateBase {
 
   @override
   FutureOr<GeoCoordBounds> get bounds {
-      var northEast = _map.bounds.northEast;
-      var southWest = _map.bounds.southWest;
-      return GeoCoordBounds(northeast: GeoCoord(northEast.lat, northEast.lng), southwest: GeoCoord(southWest.lat, southWest.lng));
+    var northEast = _map.bounds.northEast;
+    var southWest = _map.bounds.southWest;
+    return GeoCoordBounds(
+        northeast: GeoCoord(northEast.lat, northEast.lng),
+        southwest: GeoCoord(southWest.lat, southWest.lng));
   }
 
   // @override
