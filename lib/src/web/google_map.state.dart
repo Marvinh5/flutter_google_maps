@@ -12,6 +12,7 @@ import 'package:flutter/scheduler.dart' show SchedulerBinding;
 import 'package:uuid/uuid.dart';
 import 'package:flinq/flinq.dart';
 import 'package:google_maps/google_maps.dart';
+import 'package:google_maps/google_maps.dart' as JsMap;
 import 'package:google_directions_api/google_directions_api.dart'
     show GeoCoord, GeoCoordBounds;
 
@@ -157,7 +158,9 @@ class GoogleMapState extends GoogleMapStateBase {
     final marker = Marker()
       ..map = _map
       ..label = label
-      ..icon = _getImage(icon)
+      ..icon = {
+        'url': 'data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO 9TXL0Y4OHwAAAABJRU5ErkJggg=='
+      }
       ..position = position.toLatLng();
 
     if (info != null || onTap != null) {
@@ -552,6 +555,7 @@ class GoogleMapState extends GoogleMapStateBase {
           ..style.border = 'none';
 
         _map = GMap(elem, _mapOptions);
+        
 
         _subscriptions.add(_map.onClick.listen(
             (event) => widget.onTap?.call(event?.latLng?.toGeoCoord())));
