@@ -69,6 +69,7 @@ abstract class MapOperations implements MapMarkers, MapDirections, MapPolygons {
   /// Gets center coordinates of the map.
   FutureOr<GeoCoord> get center;
   FutureOr<GeoCoordBounds> get bounds;
+  FutureOr<double> get zoom;
   Stream<dynamic>  get centerStream;
 
   /// Sets the styling of the base map.

@@ -132,4 +132,8 @@ class GoogleMapState extends GoogleMapStateBase {
 
   @override
   Stream<dynamic> get centerStream => throw UnimplementedError();
+
+  @override
+  // TODO: implement zoom
+  FutureOr<double> get zoom => throw UnimplementedError();
 }

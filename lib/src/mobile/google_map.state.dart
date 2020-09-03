@@ -551,4 +551,8 @@ class GoogleMapState extends gmap.GoogleMapStateBase {
 
   @override
   Stream get centerStream => throw UnimplementedError();
+
+  @override
+  // TODO: implement zoom
+  FutureOr<double> get zoom => throw UnimplementedError();
 }

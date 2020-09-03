@@ -622,4 +622,9 @@ class GoogleMapState extends GoogleMapStateBase {
   Stream<dynamic> get centerStream {
     return _map.onBoundsChanged;
   }
+
+  @override
+  FutureOr<double> get zoom  {
+    return _map.zoom.toDouble();
+  }
 }
