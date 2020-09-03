@@ -4,6 +4,7 @@
 
 import 'dart:html';
 import 'dart:async';
+import 'dart:js';
 import 'dart:ui' as ui;
 
 import 'package:flutter/widgets.dart';
@@ -158,9 +159,9 @@ class GoogleMapState extends GoogleMapStateBase {
     final marker = Marker()
       ..map = _map
       ..label = label
-      ..icon = {
+      ..icon =  JsMap.Icon.created(JsObject.jsify({
         'url': 'data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO 9TXL0Y4OHwAAAABJRU5ErkJggg=='
-      }
+      }))
       ..position = position.toLatLng();
 
     if (info != null || onTap != null) {
