@@ -142,6 +142,7 @@ class GoogleMapState extends GoogleMapStateBase {
     String base64Icon,
     double markerWidth = 80,
     double markerHeight = 37.629,
+    num zIndex 
   }) {
     assert(() {
       if (position == null) {
@@ -162,6 +163,7 @@ class GoogleMapState extends GoogleMapStateBase {
     final marker = Marker()
       ..map = _map
       ..label = label
+      ..zIndex = zIndex ?? 0
       ..icon = base64Icon != null
           ? JsMap.Icon.created(JsObject.jsify({
               'url': base64Icon,
