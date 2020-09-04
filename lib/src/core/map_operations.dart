@@ -132,6 +132,7 @@ abstract class MapMarkers {
     String base64Icon,
     double markerWidth,
     double markerHeight,
+    num zIndex
   });
 
   /// Adds a marker to the map by given [position].

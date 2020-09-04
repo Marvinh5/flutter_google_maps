@@ -142,7 +142,7 @@ class GoogleMapState extends GoogleMapStateBase {
     String base64Icon,
     double markerWidth = 80,
     double markerHeight = 37.629,
-    num zIndex 
+    num zIndex
   }) {
     assert(() {
       if (position == null) {

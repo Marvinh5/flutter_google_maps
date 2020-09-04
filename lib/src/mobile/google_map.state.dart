@@ -167,6 +167,8 @@ class GoogleMapState extends gmap.GoogleMapStateBase {
     String  base64Icon,
     double markerWidth = 80,
     double markerHeight = 37.629,
+    num zIndex
+
   }) async {
     assert(() {
       if (position == null) {

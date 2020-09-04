@@ -74,6 +74,7 @@ class GoogleMapState extends GoogleMapStateBase {
     String base64Icon,
     double markerWidth,
     double markerHeight,
+    num zIndex
   }) =>
       throw UnimplementedError();
 
