@@ -74,7 +74,8 @@ class GoogleMapState extends GoogleMapStateBase {
     String base64Icon,
     double markerWidth,
     double markerHeight,
-    num zIndex
+    num zIndex,
+    String markerId
   }) =>
       throw UnimplementedError();
 
@@ -135,6 +136,8 @@ class GoogleMapState extends GoogleMapStateBase {
   Stream<dynamic> get centerStream => throw UnimplementedError();
 
   @override
-  // TODO: implement zoom
   FutureOr<double> get zoom => throw UnimplementedError();
+
+  @override
+  void removeMarkerFromString(String markerId) => throw UnimplementedError();
 }

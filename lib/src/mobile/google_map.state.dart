@@ -167,8 +167,8 @@ class GoogleMapState extends gmap.GoogleMapStateBase {
     String  base64Icon,
     double markerWidth = 80,
     double markerHeight = 37.629,
-    num zIndex
-
+    num zIndex,
+    String markerId
   }) async {
     assert(() {
       if (position == null) {
@@ -555,6 +555,8 @@ class GoogleMapState extends gmap.GoogleMapStateBase {
   Stream get centerStream => throw UnimplementedError();
 
   @override
-  // TODO: implement zoom
   FutureOr<double> get zoom => throw UnimplementedError();
+
+  @override
+  void removeMarkerFromString(String markerId) => throw UnimplementedError();
 }

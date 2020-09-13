@@ -142,7 +142,8 @@ class GoogleMapState extends GoogleMapStateBase {
     String base64Icon,
     double markerWidth = 80,
     double markerHeight = 37.629,
-    num zIndex
+    num zIndex,
+    String markerId
   }) {
     assert(() {
       if (position == null) {
@@ -156,7 +157,7 @@ class GoogleMapState extends GoogleMapStateBase {
       return true;
     }());
 
-    final key = position.toString();
+    final key = markerId;
 
     if (_markers.containsKey(key)) return;
 
@@ -167,6 +168,7 @@ class GoogleMapState extends GoogleMapStateBase {
       ..icon = base64Icon != null
           ? JsMap.Icon.created(JsObject.jsify({
               'url': base64Icon,
+              'optimized': false,
               'scaledSize': {
                 'height': markerHeight ?? 37.629,
                 'width': markerWidth ?? 80,
@@ -179,7 +181,7 @@ class GoogleMapState extends GoogleMapStateBase {
 
     if (info != null || onTap != null) {
       _subscriptions.add(marker.onClick.listen((_) async {
-        final key = position.toString();
+        final key = markerId;
 
         if (onTap != null) {
           onTap(key);
@@ -262,6 +264,7 @@ class GoogleMapState extends GoogleMapStateBase {
 
     _infoState.remove(key);
   }
+  
 
   @override
   void clearMarkers() {
@@ -628,5 +631,28 @@ class GoogleMapState extends GoogleMapStateBase {
   @override
   FutureOr<double> get zoom  {
     return _map.zoom.toDouble();
+  }
+
+  @override
+  void removeMarkerFromString(String markerId) {
+  assert(() {
+      if (markerId == null) {
+        throw ArgumentError.notNull('position');
+      }
+
+      return true;
+    }());
+
+    final key = markerId;
+
+    var marker = _markers.remove(key);
+    marker?.map = null;
+    marker = null;
+
+    var info = _infos.remove(key);
+    info?.close();
+    info = null;
+
+    _infoState.remove(key);
   }
 }

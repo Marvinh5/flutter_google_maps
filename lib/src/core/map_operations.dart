@@ -132,7 +132,8 @@ abstract class MapMarkers {
     String base64Icon,
     double markerWidth,
     double markerHeight,
-    num zIndex
+    num zIndex,
+    String markerId
   });
 
   /// Adds a marker to the map by given [position].
@@ -142,6 +143,9 @@ abstract class MapMarkers {
 
   /// Removes a marker from the map by given [position].
   void removeMarker(GeoCoord position);
+
+  /// removes marker using string key
+  void removeMarkerFromString(String markerId);
 
   /// Removes all markers from the map.
   void clearMarkers();
