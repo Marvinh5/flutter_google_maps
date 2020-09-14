@@ -131,20 +131,18 @@ class GoogleMapState extends GoogleMapStateBase {
   }
 
   @override
-  void addMarkerRaw(
-    GeoCoord position, {
-    String label,
-    String icon,
-    String info,
-    String infoSnippet,
-    ValueChanged<String> onTap,
-    ui.VoidCallback onInfoWindowTap,
-    String base64Icon,
-    double markerWidth = 80,
-    double markerHeight = 37.629,
-    num zIndex,
-    String markerId
-  }) {
+  void addMarkerRaw(GeoCoord position,
+      {String label,
+      String icon,
+      String info,
+      String infoSnippet,
+      ValueChanged<String> onTap,
+      ui.VoidCallback onInfoWindowTap,
+      String base64Icon,
+      double markerWidth = 80,
+      double markerHeight = 37.629,
+      num zIndex,
+      String markerId}) {
     assert(() {
       if (position == null) {
         throw ArgumentError.notNull('position');
@@ -162,6 +160,7 @@ class GoogleMapState extends GoogleMapStateBase {
     if (_markers.containsKey(key)) return;
 
     final marker = Marker()
+      ..set('optimized', false)
       ..map = _map
       ..label = label
       ..zIndex = zIndex ?? 0
@@ -264,7 +263,6 @@ class GoogleMapState extends GoogleMapStateBase {
 
     _infoState.remove(key);
   }
-  
 
   @override
   void clearMarkers() {
@@ -629,13 +627,13 @@ class GoogleMapState extends GoogleMapStateBase {
   }
 
   @override
-  FutureOr<double> get zoom  {
+  FutureOr<double> get zoom {
     return _map.zoom.toDouble();
   }
 
   @override
   void removeMarkerFromString(String markerId) {
-  assert(() {
+    assert(() {
       if (markerId == null) {
         throw ArgumentError.notNull('position');
       }
