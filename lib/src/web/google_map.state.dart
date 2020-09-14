@@ -123,7 +123,279 @@ class GoogleMapState extends GoogleMapStateBase {
     bool waitUntilReady = true,
   }) {
     try {
-      _mapOptions.styles = mapStyle?.parseMapStyle();
+      _mapOptions.styles = [
+        MapTypeStyle()
+          ..stylers = [
+            MapTypeStyler()..lightness = 13,
+            MapTypeStyler()..visibility = "simplified",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.GEOMETRY_FILL
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.GEOMETRY_STROKE
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.LABELS_ICON
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.LABELS_TEXT
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.LABELS_TEXT_FILL
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_LOCALITY
+          ..elementType = MapTypeStyleElementType.LABELS_TEXT_STROKE
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ADMINISTRATIVE_NEIGHBORHOOD
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.LANDSCAPE
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..color = "#ebebeb",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.LANDSCAPE
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.LANDSCAPE_MAN_MADE
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.LANDSCAPE_MAN_MADE
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.LANDSCAPE_NATURAL
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_ATTRACTION
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_ATTRACTION
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_BUSINESS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_BUSINESS
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_BUSINESS
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_BUSINESS
+          ..elementType = MapTypeStyleElementType.LABELS_TEXT
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_GOVERNMENT
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_GOVERNMENT
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_MEDICAL
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_PARK
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..color = "#cae3bf",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_PLACE_OF_WORSHIP
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_SCHOOL
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_SCHOOL
+          ..elementType = MapTypeStyleElementType.GEOMETRY_FILL
+          ..stylers = [
+            MapTypeStyler()..color = "#fef8ed",
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_SPORTS_COMPLEX
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.POI_SPORTS_COMPLEX
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD_ARTERIAL
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD_ARTERIAL
+          ..elementType = MapTypeStyleElementType.LABELS_TEXT
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD_HIGHWAY
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..color = "#cdd7e5",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD_HIGHWAY
+          ..elementType = MapTypeStyleElementType.LABELS_TEXT
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD_HIGHWAY_CONTROLLED_ACCESS
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD_HIGHWAY_CONTROLLED_ACCESS
+          ..elementType = MapTypeStyleElementType.LABELS_ICON
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.ROAD_HIGHWAY_CONTROLLED_ACCESS
+          ..elementType = MapTypeStyleElementType.LABELS_TEXT
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.TRANSIT
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.TRANSIT_LINE
+          ..stylers = [
+            MapTypeStyler()..visibility = "on",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.TRANSIT_LINE
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.WATER
+          ..elementType = MapTypeStyleElementType.GEOMETRY
+          ..stylers = [
+            MapTypeStyler()..color = "#aed1f0",
+          ],
+        MapTypeStyle()
+          ..featureType = MapTypeStyleFeatureType.WATER
+          ..elementType = MapTypeStyleElementType.LABELS
+          ..stylers = [
+            MapTypeStyler()..visibility = "off",
+          ],
+      ];
       _map.options = _mapOptions;
     } catch (e) {
       throw utils.MapStyleException(e.toString());
@@ -629,6 +901,10 @@ class GoogleMapState extends GoogleMapStateBase {
   @override
   FutureOr<double> get zoom {
     return _map.zoom.toDouble();
+  }
+
+  FutureOr<double> setMapStyle() {
+    // _map.options = MapOptions()..styles=
   }
 
   @override
